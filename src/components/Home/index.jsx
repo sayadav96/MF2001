@@ -22,7 +22,7 @@ const Home = ({ info }) => (
       <div className="app_wrapper_img">
         <div className={cn(styles.wrapper_img, "img_padding")}>
           <Image
-            src="/images/conqure.png"
+            src="/images/history.png"
             alt="header_img"
             objectFit="cover"
             width={500}
@@ -36,7 +36,7 @@ const Home = ({ info }) => (
       <div className="app_wrapper_img">
         <div className={cn(styles.wrapper_img, "img_padding")}>
           <Image
-            src="/images/conqure.png"
+            src="/images/story.jpg"
             alt="header_img"
             objectFit="cover"
             width={500}

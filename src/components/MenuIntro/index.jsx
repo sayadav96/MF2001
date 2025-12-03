@@ -29,7 +29,7 @@ const MenuIntro = ({ info, slug }) => {
               />
           </div> */}
             <Image
-              src="/images/fallback.png"
+              src="/images/initiative.jpg"
               alt="intro_image"
               objectFit="cover"
               width={450}
@@ -39,7 +39,7 @@ const MenuIntro = ({ info, slug }) => {
         </div>
         <div className={cn(styles.wrapper_content, "app_wrapper_info")}>
           <SubHeading title="Try it!" />
-          <h1 className="headtext_cormorant">{chooseMenuItem?.title}</h1>
+          <h1 className="headtext_cormorant">Hello</h1>
           <div className={styles.intro_content}>
             <div>
               <p className={styles.intro_tag}>{chooseMenuItem?.tags}</p>

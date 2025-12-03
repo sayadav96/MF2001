@@ -13,27 +13,32 @@ const AboutUs = ({ info }) => {
       className={cn(styles.about, "app_bg", "flex_center", "section_padding")}
       id="about"
     >
-      <div className={cn(styles.about_overlay, "flex_center")}>
+      {/* <div className={cn(styles.about_overlay, "flex_center")}>
         <div className={styles.about_overlay_img}>
           <Image
-            src="/images/fallback.png"
+            src="/images/about-us.png"
             layout="fill"
             objectFit="cover"
             alt="overlay"
+
           />
         </div>
-      </div>
+      </div> */}
       <div className={cn(styles.about_content, "flex_center")}>
         <div className={styles.about_content_about}>
-          <h1 className="headtext_cormorant">{info?.metadata?.about}</h1>
+          <h1 className="headtext_cormorant">AboutUs</h1>
           <LineBreak />
-          <p className="opensans">{info?.metadata?.about_intro}</p>
-          <Button name="Know More" path="#intro" />
+          <p className="opensans">
+            A group of Class of 2001 school friends reunited after 24 years, now
+            registered under the Kerala Government, coming together to support
+            each other and give back to the community.
+          </p>
+          <Button name="Know More" path="/about" />
         </div>
         <div className={cn(styles.about_content_knife, "flex_center")}>
           <div className={styles.about_content_img}>
             <Image
-              src="/images/fallback.png"
+              src="/images/logo.png"
               layout="fill"
               objectFit="contain"
               alt="about_knife"
@@ -42,10 +47,13 @@ const AboutUs = ({ info }) => {
           </div>
         </div>
         <div className={styles.about_content_history}>
-          <h1 className="headtext_cormorant">{info?.metadata?.title}</h1>
+          <h1 className="headtext_cormorant">Programs</h1>
           <LineBreak />
-          <p className="opensans">{info?.metadata?.title_intro}</p>
-          <Button name="Know More" path="#gallery" />
+          <p className="opensans">
+            We run collaborative initiatives focused on education, welfare, and
+            mutual support, driven by the lifelong bond of the Class of 2001.
+          </p>
+          <Button name="Know More" path="/programs" />
         </div>
       </div>
     </div>
