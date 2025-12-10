@@ -46,8 +46,6 @@ const CustomRightArrow = ({ onClick }) => (
 const BirthdayCarousel = () => {
   const [items] = useState(staticImages);
 
-  console.log("birthday items:", items); // TEMP: see in dev tools
-
   if (!items || items.length === 0) return null;
 
   return (
