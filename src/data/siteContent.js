@@ -5,7 +5,7 @@ export const navbarContent = {
   logo: "/images/fallback.png", // or /images/logo.png
   links: [
     { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
+    { label: "Our Team", href: "#team" },
     { label: "Programs", href: "#programs" },
     { label: "Gallery", href: "#gallery" },
     { label: "Contact", href: "#contact" },

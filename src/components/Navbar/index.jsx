@@ -6,7 +6,6 @@ import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GiShakingHands } from "react-icons/gi";
 
-
 import styles from "./styles.module.scss";
 import { navbarContent } from "../../data/siteContent";
 
@@ -15,7 +14,7 @@ const Navbar = ({ navbarInfo }) => {
 
   const links = navbarContent?.links || [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
+    { href: "#team", label: "Team" },
     { href: "#menu", label: "Menu" },
     { href: "#contact", label: "Contact" },
   ];

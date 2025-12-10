@@ -1,23 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { FiLinkedin } from "react-icons/fi";
 import styles from "./styles.module.scss";
 
 const Footer = ({ children }) => (
   <footer className={styles.footer}>
     {children}
-    <Link href={`https://www.cosmicjs.com?ref=next-restaurant-cms`} passHref>
+    <Link href={`www.linkedin.com/in/arjun-yadav-profile`} passHref>
       <a target="_blank" rel="noopener noreferrer">
         <div className={styles.footer_copyright}>
-          <p className="opensans">Powered by </p>
+          <p className="opensans">Created by Arjun Yadav</p>
           <span className={styles.footer_logo}>
-            <Image
-              src="/images/fallback.png"
-              objectFit="contain"
-              alt="Cosmic Logo"
-              width={90}
-              height={40}
-            />
+            <FiLinkedin color="white" size={20}/>
           </span>
         </div>
       </a>

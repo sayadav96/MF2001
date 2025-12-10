@@ -11,7 +11,6 @@ const AboutUs = ({ info }) => {
   return (
     <div
       className={cn(styles.about, "app_bg", "flex_center", "section_padding")}
-      id="about"
     >
       {/* <div className={cn(styles.about_overlay, "flex_center")}>
         <div className={styles.about_overlay_img}>
@@ -25,8 +24,8 @@ const AboutUs = ({ info }) => {
         </div>
       </div> */}
       <div className={cn(styles.about_content, "flex_center")}>
-        <div className={styles.about_content_about}>
-          <h1 className="headtext_cormorant">AboutUs</h1>
+        <div className={styles.about_content_about} id="team">
+          <h1 className="headtext_cormorant">Our Team</h1>
           <LineBreak />
           <p className="opensans">
             A group of Class of 2001 school friends reunited after 24 years, now
@@ -46,7 +45,7 @@ const AboutUs = ({ info }) => {
             />
           </div>
         </div>
-        <div className={styles.about_content_history}>
+        <div className={styles.about_content_history} id="programs">
           <h1 className="headtext_cormorant">Programs</h1>
           <LineBreak />
           <p className="opensans">

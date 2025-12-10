@@ -1,0 +1,184 @@
+// .wrapper {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+//   color: #fff;
+// }
+
+// .carouselOuter {
+//   position: relative;
+//   width: 100%;
+//   max-width: 420px;        /* card width */
+//   margin: 2rem auto 0;     /* center */
+//   overflow: visible;       /* allow arrows to extend */
+// }
+
+// .carouselContainer {
+//   width: 100%;
+// }
+
+// .slide {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+// .imageWrapper {
+//   position: relative;
+//   width: 100%;
+//   padding-top: 140%;       /* portrait ratio */
+//   border-radius: 16px;
+//   overflow: hidden;
+// }
+
+// /* --- ARROWS --- */
+// .arrow {
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   border: none;
+
+//   background: rgba(255, 215, 0, 0.9);
+//   border-radius: 999px;
+//   padding: 0.5rem 0.7rem;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   cursor: pointer;
+//   z-index: 50;
+//   color: black;
+//   font-weight: bold;
+//   transition: all 0.2s ease;
+// }
+
+// .arrow:hover {
+//   background: #ffd700;
+//   box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+// }
+
+// /* Arrows slightly outside the card into black area */
+// .left {
+//   left: -48px;
+// }
+
+// .right {
+//   right: -48px;
+// }
+
+// /* Hide arrows on small screens */
+// @media (max-width: 600px) {
+//   .arrow {
+//     display: none;
+//   }
+// }
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.carouselOuter {
+  position: relative; /* THIS IS CORRECT: It serves as the positioning context for the arrows */
+  width: 100%;
+  max-width: 420px; /* card width */
+  margin: 2rem auto 0; /* center */
+  overflow: visible; /* THIS IS CRITICAL AND CORRECT: Allows content (arrows) to escape the box */
+}
+
+/*
+  The react-multi-carousel component structure:
+  .carouselOuter (relative)
+    > .react-multi-carousel-list
+      > .react-multi-carousel-track
+      > .react-multi-carousel-item-list (contains slides)
+      > .react-multi-carousel-arrow-right (wraps CustomRightArrow)
+      > .react-multi-carousel-arrow-left (wraps CustomLeftArrow)
+  The custom arrows (.arrow) are children of the automatically generated .react-multi-carousel-arrow-* elements.
+*/
+
+.carouselContainer {
+  width: 100%;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 140%; /* portrait ratio */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* --- ARROWS --- */
+
+/* 1. Target the library's wrapper classes for the arrows */
+/* We reset the library's default arrow positioning (if any) and ensure 
+   the Z-index is high enough. */
+.react-multi-carousel-list .react-multi-carousel-arrow {
+    position: absolute;
+    /* Reset any default positioning the library might be applying */
+    top: 50%; 
+    z-index: 50;
+    transform: translateY(-50%);
+    /* Set the initial position relative to the main list container */
+}
+
+
+/* 2. Style your custom button element */
+.arrow {
+  /* Inherit positioning from the parent .react-multi-carousel-arrow */
+  position: unset; /* Remove the absolute positioning from the button itself */
+  top: unset; 
+  transform: unset;
+  
+  /* Retain styling properties */
+  border: none;
+  background: rgba(255, 215, 0, 0.9);
+  border-radius: 999px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.arrow:hover {
+  background: #ffd700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+/* 3. Apply the final positioning to the library's wrapper elements */
+/* These classes are automatically added by the library */
+
+.react-multi-carousel-arrow--left {
+  left: -48px; /* Arrows slightly outside the card into black area */
+}
+
+.react-multi-carousel-arrow--right {
+  right: -48px; /* Arrows slightly outside the card into black area */
+}
+
+
+/* Hide arrows on small screens */
+@media (max-width: 600px) {
+  /* IMPORTANT: Target the library's wrapper to hide them effectively */
+  .react-multi-carousel-arrow {
+    display: none !important;
+  }
+}
