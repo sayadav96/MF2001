@@ -1,4 +1,5 @@
-import { useState } from "react";
+// src/components/BirthdayCarousel/index.jsx
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -9,18 +10,9 @@ import { birthdayImages as staticImages } from "data/birthdayImages";
 import styles from "./styles.module.scss";
 
 const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 };
 
 const CustomLeftArrow = ({ onClick }) => (
@@ -29,7 +21,7 @@ const CustomLeftArrow = ({ onClick }) => (
     type="button"
     onClick={onClick}
   >
-    <BsArrowLeftShort size={32} />
+    <BsArrowLeftShort size={28} />
   </button>
 );
 
@@ -39,21 +31,46 @@ const CustomRightArrow = ({ onClick }) => (
     type="button"
     onClick={onClick}
   >
-    <BsArrowRightShort size={32} />
+    <BsArrowRightShort size={28} />
   </button>
 );
 
 const BirthdayCarousel = () => {
-  const [items] = useState(staticImages);
+  const [items, setItems] = useState(staticImages || []);
+  const [loading, setLoading] = useState(true);
 
-  if (!items || items.length === 0) return null;
+  useEffect(() => {
+    let mounted = true;
+    const load = async () => {
+      try {
+        const res = await fetch("/api/notification-images");
+        if (!res.ok) throw new Error("status " + res.status);
+        const json = await res.json();
+        if (mounted && Array.isArray(json.images) && json.images.length) {
+          setItems(json.images);
+        }
+      } catch (e) {
+        console.warn("Could not load Drive images, using static fallback:", e);
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    };
+    load();
+    return () => (mounted = false);
+  }, []);
+
+  if (!items || items.length === 0) {
+    if (loading) return null;
+    // optionally show a placeholder
+    return null;
+  }
 
   return (
     <section
       className={cn(styles.wrapper, "section_padding", "flex_center")}
       id="birthdays"
     >
-      <h2 className="headtext_cormorant">News And Updates</h2>
+      <h2 className="headtext_cormorant">News and Updates</h2>
 
       <div className={styles.carouselOuter}>
         <div className={styles.carouselContainer}>
@@ -66,18 +83,24 @@ const BirthdayCarousel = () => {
             swipeable
             draggable
           >
-            {items.map((item) => (
-              <div key={item.id} className={styles.slide}>
-                <div className={styles.imageWrapper}>
-                  <Image
-                    src={item.src}
-                    alt={item.name || "Birthday image"}
-                    layout="fill"
-                    objectFit="cover"
-                  />
+            {items.map((item) => {
+              const imageSrc = item.src || item.thumbnailLink;
+              if (!imageSrc) return null;
+
+              return (
+                <div key={item.id} className={styles.slide}>
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      src={imageSrc}
+                      alt={item.name || "image"}
+                      layout="fill"
+                      sizes="(max-width: 768px) 90vw, 360px"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </Carousel>
         </div>
       </div>

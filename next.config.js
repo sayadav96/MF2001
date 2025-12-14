@@ -3,9 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-        formats: ['image/avif', 'image/webp'],
-        domains: [ 'imgix.cosmicjs.com' ],
-    },
-}
+    domains: ["drive.google.com", "lh3.googleusercontent.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
