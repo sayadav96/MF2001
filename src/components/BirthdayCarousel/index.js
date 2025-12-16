@@ -9,6 +9,17 @@ import cn from "classnames";
 import { birthdayImages as staticImages } from "data/birthdayImages";
 import styles from "./styles.module.scss";
 
+// Helper function to generate the secure direct image link
+// const generateDirectDriveLink = (fileId) => {
+//   if (!fileId) return null;
+//   // Use the specific Google Drive download endpoint format
+//   return `https://drive.google.com/uc?export=download&id=${fileId}`;
+// };
+const generateDirectDriveLink = (fileId) => {
+  if (!fileId) return null;
+  // FIX: Point to the new server-side proxy API route
+  return `/api/drive-image/${fileId}`;
+};
 const responsive = {
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
   tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
@@ -84,7 +95,8 @@ const BirthdayCarousel = () => {
             draggable
           >
             {items.map((item) => {
-              const imageSrc = item.src || item.thumbnailLink;
+              // FIX: Use the file ID to generate the reliable direct link
+              const imageSrc = item.src || generateDirectDriveLink(item.id);
               if (!imageSrc) return null;
 
               return (
