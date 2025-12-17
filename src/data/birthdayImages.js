@@ -5,13 +5,8 @@ export const birthdayImages = [
   {
     id: "1",
     src: "/images/birthdays/sample1.jpg", // put this in public/images/birthdays/
-    name: "Priya",
-    message: "Happy birthday, Priya! 💜",
+    name: "",
+    message: "",
   },
-  {
-    id: "2",
-    src: "/images/birthdays/sample2.jpg",
-    name: "Rahul",
-    message: "Lots of love from Millennium Friends 2001.",
-  },
+
 ];
