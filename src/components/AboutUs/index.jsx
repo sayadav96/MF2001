@@ -32,7 +32,7 @@ const AboutUs = ({ info }) => {
             registered under the Kerala Government, coming together to support
             each other and give back to the community.
           </p>
-          <Button name="Know More" path="/about" />
+          <Button name="Know More" path="/team" />
         </div>
         <div className={cn(styles.about_content_knife, "flex_center")}>
           <div className={styles.about_content_img}>

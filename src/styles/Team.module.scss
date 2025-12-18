@@ -1,0 +1,76 @@
+.container {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  /* Add this to ensure the container behaves as a block */
+  display: block; 
+  width: 100%;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  /* Forces 3 columns on desktop, 1 on mobile */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 3rem;
+  margin-top: 3rem;
+  width: 100%;
+  justify-items: center
+
+}
+
+.card {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  
+  &:hover .imageWrapper {
+    border-color: #DCCA87;
+    transform: scale(1.05);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #545454;
+  transition: all 0.4s ease-in-out;
+}
+
+.name {
+  color: #DCCA87;
+  font-size: 1.5rem;
+  font-family: var(--font-base);
+  margin-bottom: 0.5rem;
+}
+
+.role {
+  color: #AAAAAA;
+  font-family: var(--font-alt);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr; /* Vertical stack for mobile */
+    gap: 2rem;
+  }
+}
