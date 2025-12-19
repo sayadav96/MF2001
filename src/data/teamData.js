@@ -49,10 +49,15 @@ export const socialMediaTeam = [
     role: "Social Media Team",
     src: "/team/12.jpg",
   },
-  { id: 13, name: "Archana", role: "Social Media Team", src: "/team/13.jpg" },
   {
-    id: 14,
-    name: "Renjith Panchaman",
+    id: 13,
+    name: "Archana Babu",
+    role: "Social Media Team",
+    src: "/team/13.jpg",
+  },
+  {
+    id: 2,
+    name: "Vinod Bhaskaran",
     role: "Social Media Team",
     src: "/team/14.jpg",
   },

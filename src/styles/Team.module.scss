@@ -28,7 +28,6 @@
   width: 100%;
   max-width: 250px;
   text-align: center;
-  
   &:hover .imageWrapper {
     border-color: #DCCA87;
     transform: scale(1.05);
@@ -44,6 +43,10 @@
   overflow: hidden;
   border: 1px solid #545454;
   transition: all 0.4s ease-in-out;
+
+}
+.image {
+  object-fit: cover; /* This prevents the stretching */
 }
 
 .name {
