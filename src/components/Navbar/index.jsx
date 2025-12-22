@@ -46,12 +46,11 @@ const Navbar = ({ navbarInfo }) => {
       </ul>
 
       <div className={styles.navbar_login}>
-        <a
-          href="/contact"
-          className={cn(styles.menu_item, "opensans", styles.navbar_cta)}
-        >
-          {actionLabel}
-        </a>
+        <Link href="/contact">
+          <a className={cn(styles.menu_item, "opensans", styles.navbar_cta)}>
+            {actionLabel}
+          </a>
+        </Link>
       </div>
 
       <div className={styles.navbar_smallscreen}>

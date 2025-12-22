@@ -4,7 +4,7 @@ export const executiveTeam = [
     id: 2,
     name: "Vinod Bhaskaran",
     role: "Vice President",
-    src: "/team/2.jpg",
+    src: "/team/14.jpg",
   },
   { id: 3, name: "Sibi Anish", role: "Vice President", src: "/team/3.jpg" },
   { id: 4, name: "Girish Kumar", role: "Secretary", src: "/team/4.jpg" },
