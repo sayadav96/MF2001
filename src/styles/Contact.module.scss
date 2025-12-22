@@ -1,0 +1,84 @@
+.container {
+  padding: 6rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+
+.form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  input, textarea {
+    background: transparent;
+    border: 1px solid #545454;
+    padding: 1rem;
+    color: white;
+    font-family: var(--font-alt);
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #DCCA87;
+    }
+  }
+}
+
+.custom__button {
+  background-color: #DCCA87; 
+  color: #0c0c0c;           
+  padding: 0.8rem 2.5rem;
+  border-radius: 50px;      
+  border: none;
+  font-family: var(--font-base);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;       
+  align-self: center;       
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+    
+  &:hover {
+    background-color: #f1e4b3; 
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background-color: #545454;
+    cursor: not-allowed;
+  }
+}
+
+.inputGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.success { color: #DCCA87; margin-top: 1rem; text-align: center; }
+.error { color: #f44336; margin-top: 1rem; text-align: center; }
+
+/* ... Keep all your existing .container, .form, and .custom__button styles above ... */
+
+@media screen and (max-width: 650px) {
+  .container {
+    /* Reducing horizontal padding to 0.5rem (approx 8px) 
+       allows the form elements to touch closer to the screen edges.
+    */
+    padding: 4rem 0.5rem; 
+    width: 80%;
+  }
+
+  .form {
+    gap: 1rem; /* Slightly tighter gap for mobile screens */
+    width: 100%;
+  }
+
+  .inputGroup { 
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+}

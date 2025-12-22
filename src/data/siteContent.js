@@ -8,7 +8,6 @@ export const navbarContent = {
     { label: "Our Team", href: "/team" },
     { label: "Programs", href: "/programs" },
     { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" },
   ],
 };
 

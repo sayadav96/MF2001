@@ -47,7 +47,7 @@ const Navbar = ({ navbarInfo }) => {
 
       <div className={styles.navbar_login}>
         <a
-          href="#contact"
+          href="/contact"
           className={cn(styles.menu_item, "opensans", styles.navbar_cta)}
         >
           {actionLabel}
