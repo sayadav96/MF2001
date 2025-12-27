@@ -35,10 +35,10 @@ const Home = () => (
           height="507"
           src="https://www.youtube.com/embed/kyOAskvP-Fw"
           title="കഥാനേരം - ജീവിതമൂല്യത്തിൻ്റെ തിരിച്ചറിവിനായി ഒരു ചെറു കഥ #Shortstory #inspirationstory #moralstory"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
     </div>
