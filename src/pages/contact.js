@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import Image from "next/image"; // Import Next.js Image component
 import Layout from "components/Layout";
 import Footer from "components/Footer";
 import Contacts from "components/Contact";
@@ -45,6 +46,22 @@ const ContactPage = () => {
             Get In Touch
           </h1>
 
+          {/* QR Code Section */}
+          <div className={styles.paymentSection}>
+            <p className={styles.paymentText}>
+              Support our initiatives — Scan to contribute
+            </p>
+            <div className={styles.qrWrapper}>
+              <Image
+                src="/images/qrcode.jpeg"
+                alt="Payment QR Code"
+                width={200}
+                height={200}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
+
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
               <input type="text" name="name" placeholder="Your Name" required />
@@ -65,7 +82,7 @@ const ContactPage = () => {
 
             <button
               type="submit"
-              className="styles.custom__button"
+              className={styles.custom__button} // Fixed: Removed quotes to use CSS module class correctly
               disabled={status === "sending"}
             >
               {status === "sending" ? "Sending..." : "Send Message"}

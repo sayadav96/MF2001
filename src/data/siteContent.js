@@ -7,7 +7,6 @@ export const navbarContent = {
     { label: "Home", href: "/" },
     { label: "Our Team", href: "/team" },
     { label: "Programs", href: "/programs" },
-    { label: "Gallery", href: "#gallery" },
   ],
 };
 

@@ -12,11 +12,11 @@ import { navbarContent } from "../../data/siteContent";
 const Navbar = ({ navbarInfo }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  // Fallback links if siteContent is missing
   const links = navbarContent?.links || [
-    { href: "#home", label: "Home" },
-    { href: "#team", label: "Team" },
-    { href: "#menu", label: "Menu" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/team", label: "Team" },
+    { href: "/programs", label: "Programs" },
   ];
 
   const actionLabel = navbarInfo?.metadata?.action || "Contact";
@@ -27,7 +27,6 @@ const Navbar = ({ navbarInfo }) => {
 
   return (
     <nav className={styles.navbar_container} id="navigation">
-      {/* ✅ Fix: Link has a single child (<a>) */}
       <Link href="/" passHref legacyBehavior>
         <a className={styles.navbar_logo}>
           <Image src="/images/logo.png" width={40} height={40} alt="logo" />
@@ -37,16 +36,20 @@ const Navbar = ({ navbarInfo }) => {
         </a>
       </Link>
 
+      {/* Desktop Navigation Links */}
       <ul className={styles.navbar_links}>
         {links.map((link) => (
           <li className={cn(styles.menu_item, "opensans")} key={link.href}>
-            <a href={link.href}>{link.label}</a>
+            <Link href={link.href} passHref legacyBehavior>
+              <a>{link.label}</a>
+            </Link>
           </li>
         ))}
       </ul>
 
+      {/* Primary Contact CTA (Desktop and Tablet) */}
       <div className={styles.navbar_login}>
-        <Link href="/contact">
+        <Link href="/contact" passHref legacyBehavior>
           <a className={cn(styles.menu_item, "opensans", styles.navbar_cta)}>
             {actionLabel}
           </a>
@@ -73,14 +76,23 @@ const Navbar = ({ navbarInfo }) => {
             <ul className={styles.navbar_smallscreen_links}>
               {links.map((link) => (
                 <li onClick={handleToggle} className="opensans" key={link.href}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href} passHref legacyBehavior>
+                    <a>{link.label}</a>
+                  </Link>
                 </li>
               ))}
-              {/* <li onClick={handleToggle}>
-                <a href="#contact" className="opensans">
-                  {actionLabel}
-                </a>
-              </li> */}
+
+              {/* Contact Button specifically for the Mobile Overlay */}
+              <li onClick={handleToggle} style={{ marginTop: "1rem" }}>
+                <Link href="/contact" passHref legacyBehavior>
+                  <a
+                    className={cn("opensans", styles.navbar_cta)}
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    {actionLabel}
+                  </a>
+                </Link>
+              </li>
             </ul>
           </div>
         )}

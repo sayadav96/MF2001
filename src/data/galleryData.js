@@ -8,9 +8,9 @@ export const galleryContent = {
 };
 
 export const galleryImages = [
-  { title: "Onam 2025", price: "", src: "/gallery/1000479915.jpg" },
-  { title: "Onam 2025", price: "", src: "/gallery/1000479916.jpg" },
-  { title: "Onam 2025", price: "", src: "/gallery/1000479917.jpg" },
-  { title: "Team Gathering", price: "", src: "/gallery/1000479918.jpg" },
-  { title: "Onam 2025", price: "", src: "/gallery/1000479920.jpg" },
+  { title: "Onam Outreach 2025", price: "", src: "/gallery/1000479915.jpg" },
+  { title: "Onam Outreach 2025", price: "", src: "/gallery/1000479916.jpg" },
+  { title: "Onam Outreach 2025", price: "", src: "/gallery/1000479917.jpg" },
+  { title: "Onam Outreach 2025", price: "", src: "/gallery/1000479918.jpg" },
+  { title: "Onam Outreach 2025", price: "", src: "/gallery/1000479920.jpg" },
 ];

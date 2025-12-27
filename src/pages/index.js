@@ -21,9 +21,10 @@ function Template({ data }) {
         <link rel="icon" href="/images/logo.png" />
       </Head>
       <Layout navbar={chooseByType(data, "navigation")}>
-        <Home info={chooseByType(data, "header")} />
         <BirthdayCarousel />
         <AboutUs info={chooseByType(data, "about")} />
+        <Home info={chooseByType(data, "header")} />
+
         <SpacialMenu
           info={[chooseByType(data, "drink"), chooseByType(data, "food")]}
         />
@@ -33,7 +34,7 @@ function Template({ data }) {
         />
       </Layout>
       <Footer>
-        <VideoIntro url={chooseByType(data, "video")} />
+        {/* <VideoIntro url={chooseByType(data, "video")} /> */}
         <Contacts info={chooseByType(data, "contact")} />
       </Footer>
     </>

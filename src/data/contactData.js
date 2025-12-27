@@ -9,7 +9,7 @@ export const contactContent = {
     {
       title: "How We Connect",
       intro:
-        "Most updates and coordination happen through our WhatsApp groups and planned meet-ups.",
+        "Contact number: +91 7907121762 | Email Address: mf2001nsshs@gmail.com",
     },
     {
       title: "Need Help or Want to Help?",
