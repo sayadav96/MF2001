@@ -94,6 +94,7 @@ const BirthdayCarousel = () => {
             swipeable
             draggable
             autoPlay
+            autoPlaySpeed={8000}
           >
             {items.map((item) => {
               // FIX: Use the file ID to generate the reliable direct link
