@@ -29,10 +29,13 @@ const Navbar = ({ navbarInfo }) => {
     <nav className={styles.navbar_container} id="navigation">
       <Link href="/" passHref legacyBehavior>
         <a className={styles.navbar_logo}>
-          <Image src="/images/logo.png" width={40} height={40} alt="logo" />
-          <span className={cn("opensans", styles.navbar_logo_text)}>
-            MF2001
-          </span>
+          <Image src="/images/logo.png" width={50} height={50} alt="logo" />
+          <div className={styles.navbar_logo_titles}>
+            <span className={cn("opensans", styles.navbar_logo_text)}>
+              MILLENNIUM FRIENDS 2001
+            </span>
+            <p className={styles.navbar_logo_subtext}>Reg:ALP/TC/313/2025</p>
+          </div>
         </a>
       </Link>
 

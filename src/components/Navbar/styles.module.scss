@@ -16,17 +16,31 @@
 .navbar_logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
+  gap: 0.7rem; // Slightly more gap for the image  text-decoration: none;
   cursor: pointer;
+}
+.navbar_logo_titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .navbar_logo_text {
   font-family: $font-base;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: $color-white;
   font-weight: 600;
   letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.navbar_logo_subtext {
+  font-family: $font-alt; // Using alt font for the smaller text
+  font-size: 0.7rem;      // Smaller size for the registration number
+  color: $color-golden;   // Using golden color to make it look official
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .navbar_links {
